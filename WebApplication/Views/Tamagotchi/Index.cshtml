@@ -1,0 +1,31 @@
+﻿@model TamagotchiContract[]
+@using WebApplication.TamagotchiService
+@{
+    ViewBag.Title = "Tamagotchi List";
+}
+<h2>List of Tamagotchies</h2>
+<p>
+    @Html.ActionLink("New Tamagotchi", "Create", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table table-bordered">
+   <thead>
+       <tr>
+           <th>Naam</th><th>Status</th><th>Health</th><th>Hunger</th><th>Sleep</th><th>Boredom</th><th>Cooldown</th>
+       </tr>
+   </thead>
+    <tbody>
+       @foreach (TamagotchiContract tamagotchi in Model)
+       {
+           <tr>
+               <td>@Html.ActionLink(tamagotchi.Name, "Details", new { name = tamagotchi.Name }, new {@class= "btn btn-success" })</td>
+               <td>@tamagotchi.Status</td>
+               <td>@tamagotchi.Health</td>
+               <td>@tamagotchi.Hunger</td>
+               <td>@tamagotchi.Sleep</td>
+               <td>@tamagotchi.Boredom</td>
+               <td>@tamagotchi.Cooldown</td>
+           </tr>
+       }
+    </tbody>
+</table>

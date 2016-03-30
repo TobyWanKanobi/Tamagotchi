@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication", "ConsoleApplication\ConsoleApplication.csproj", "{071E473A-1AD3-422D-99F4-E972243D6B97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication", "WebApplication\WebApplication.csproj", "{9E66E66B-211B-4907-B080-01373B4ED8F2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A018C178-CFD7-4F77-9AC5-E88FC2FF4280} = {A018C178-CFD7-4F77-9AC5-E88FC2FF4280}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{B5FA0B0D-7141-4F7B-BF49-B73221142140}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfService", "WcfService\WcfService.csproj", "{A018C178-CFD7-4F77-9AC5-E88FC2FF4280}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{071E473A-1AD3-422D-99F4-E972243D6B97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{071E473A-1AD3-422D-99F4-E972243D6B97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{071E473A-1AD3-422D-99F4-E972243D6B97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{071E473A-1AD3-422D-99F4-E972243D6B97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E66E66B-211B-4907-B080-01373B4ED8F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E66E66B-211B-4907-B080-01373B4ED8F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E66E66B-211B-4907-B080-01373B4ED8F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E66E66B-211B-4907-B080-01373B4ED8F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5FA0B0D-7141-4F7B-BF49-B73221142140}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5FA0B0D-7141-4F7B-BF49-B73221142140}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5FA0B0D-7141-4F7B-BF49-B73221142140}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5FA0B0D-7141-4F7B-BF49-B73221142140}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A018C178-CFD7-4F77-9AC5-E88FC2FF4280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A018C178-CFD7-4F77-9AC5-E88FC2FF4280}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A018C178-CFD7-4F77-9AC5-E88FC2FF4280}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A018C178-CFD7-4F77-9AC5-E88FC2FF4280}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35
+	EndGlobalSection
+EndGlobal

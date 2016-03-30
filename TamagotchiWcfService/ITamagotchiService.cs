@@ -9,6 +9,9 @@ namespace TamagotchiWcfService
     public interface ITamagotchiService
     {
         [OperationContract]
+        void CreateTamagotchi(string name);
+
+        [OperationContract]
         TamagotchiContract GetTamagotchiByName(string Name);
 
         [OperationContract]

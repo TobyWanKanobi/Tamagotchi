@@ -20,6 +20,11 @@ namespace TamagotchiWcfService
             TamagotchiRepository = tamagotchiRepository;
         }
 
+        public void CreateTamagotchi(string name)
+        {
+            throw new NotImplementedException();
+        }
+
         public TamagotchiContract GetTamagotchiByName(string Name)
         {
             if (String.IsNullOrEmpty(Name))

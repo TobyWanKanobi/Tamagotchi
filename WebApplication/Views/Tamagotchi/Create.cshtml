@@ -1,0 +1,16 @@
+﻿@model WebApplication.TamagotchiService.TamagotchiContract
+@{
+    ViewBag.Title = "Create";
+}
+<h1>Create a new Tamagotchi</h1>
+<form class="form-inline" method="POST">
+    <div class="form-group">
+        <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+        <div class="input-group">
+            <div class="input-group-addon">$</div>
+            <input name="name" type="text" class="form-control" id="name" placeholder="Amount">
+            <div class="input-group-addon">.00</div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

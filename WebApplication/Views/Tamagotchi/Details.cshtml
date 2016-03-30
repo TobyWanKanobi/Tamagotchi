@@ -14,7 +14,8 @@
 </div>
 <div class="row">
     <div class="col-md-2">Status</div>
-    <div class="col-md-2">@Model.Status</div>
+    <div class="col-md-2">@Html.ConvertStatusToImage(Model.Status)
+    @Model.Status</div>
 </div>
 <div class="row">
     <div class="col-md-2">Health</div>

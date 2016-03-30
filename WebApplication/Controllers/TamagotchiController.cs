@@ -20,5 +20,21 @@ namespace WebApplication.Controllers
 
             return View(tamagotchi);
         }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+                return RedirectToAction("Index");
+
+            service.CreateTamagotchi(name);
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace ConsoleApplication.TamagotchiService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TamagotchiContract", Namespace="http://schemas.datacontract.org/2004/07/TamagotchiWcfService.Contract")]
     [System.SerializableAttribute()]
-    internal partial class TamagotchiContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class TamagotchiContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -63,7 +63,7 @@ namespace ConsoleApplication.TamagotchiService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        internal int Boredom {
+        public int Boredom {
             get {
                 return this.BoredomField;
             }
@@ -76,7 +76,7 @@ namespace ConsoleApplication.TamagotchiService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        internal int Cooldown {
+        public int Cooldown {
             get {
                 return this.CooldownField;
             }
@@ -89,7 +89,7 @@ namespace ConsoleApplication.TamagotchiService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        internal int Health {
+        public int Health {
             get {
                 return this.HealthField;
             }
@@ -102,7 +102,7 @@ namespace ConsoleApplication.TamagotchiService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        internal int Hunger {
+        public int Hunger {
             get {
                 return this.HungerField;
             }
@@ -115,7 +115,7 @@ namespace ConsoleApplication.TamagotchiService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        internal bool IsAlive {
+        public bool IsAlive {
             get {
                 return this.IsAliveField;
             }
@@ -128,7 +128,7 @@ namespace ConsoleApplication.TamagotchiService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        internal System.DateTime LastAccess {
+        public System.DateTime LastAccess {
             get {
                 return this.LastAccessField;
             }
@@ -141,7 +141,7 @@ namespace ConsoleApplication.TamagotchiService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        internal System.DateTime LastAction {
+        public System.DateTime LastAction {
             get {
                 return this.LastActionField;
             }
@@ -154,7 +154,7 @@ namespace ConsoleApplication.TamagotchiService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        internal string Name {
+        public string Name {
             get {
                 return this.NameField;
             }
@@ -167,7 +167,7 @@ namespace ConsoleApplication.TamagotchiService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        internal int Sleep {
+        public int Sleep {
             get {
                 return this.SleepField;
             }
@@ -180,7 +180,7 @@ namespace ConsoleApplication.TamagotchiService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        internal string Status {
+        public string Status {
             get {
                 return this.StatusField;
             }
@@ -206,7 +206,7 @@ namespace ConsoleApplication.TamagotchiService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ActionContract", Namespace="http://schemas.datacontract.org/2004/07/TamagotchiWcfService.Contract")]
     [System.SerializableAttribute()]
-    internal partial class ActionContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class ActionContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -228,7 +228,7 @@ namespace ConsoleApplication.TamagotchiService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        internal string Action {
+        public string Action {
             get {
                 return this.ActionField;
             }
@@ -241,7 +241,7 @@ namespace ConsoleApplication.TamagotchiService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        internal string Name {
+        public string Name {
             get {
                 return this.NameField;
             }
@@ -265,7 +265,13 @@ namespace ConsoleApplication.TamagotchiService {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="TamagotchiService.ITamagotchiService")]
-    internal interface ITamagotchiService {
+    public interface ITamagotchiService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/CreateTamagotchi", ReplyAction="http://tempuri.org/ITamagotchiService/CreateTamagotchiResponse")]
+        void CreateTamagotchi(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/CreateTamagotchi", ReplyAction="http://tempuri.org/ITamagotchiService/CreateTamagotchiResponse")]
+        System.Threading.Tasks.Task CreateTamagotchiAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/GetTamagotchiByName", ReplyAction="http://tempuri.org/ITamagotchiService/GetTamagotchiByNameResponse")]
         ConsoleApplication.TamagotchiService.TamagotchiContract GetTamagotchiByName(string Name);
@@ -287,12 +293,12 @@ namespace ConsoleApplication.TamagotchiService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal interface ITamagotchiServiceChannel : ConsoleApplication.TamagotchiService.ITamagotchiService, System.ServiceModel.IClientChannel {
+    public interface ITamagotchiServiceChannel : ConsoleApplication.TamagotchiService.ITamagotchiService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal partial class TamagotchiServiceClient : System.ServiceModel.ClientBase<ConsoleApplication.TamagotchiService.ITamagotchiService>, ConsoleApplication.TamagotchiService.ITamagotchiService {
+    public partial class TamagotchiServiceClient : System.ServiceModel.ClientBase<ConsoleApplication.TamagotchiService.ITamagotchiService>, ConsoleApplication.TamagotchiService.ITamagotchiService {
         
         public TamagotchiServiceClient() {
         }
@@ -311,6 +317,14 @@ namespace ConsoleApplication.TamagotchiService {
         
         public TamagotchiServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public void CreateTamagotchi(string name) {
+            base.Channel.CreateTamagotchi(name);
+        }
+        
+        public System.Threading.Tasks.Task CreateTamagotchiAsync(string name) {
+            return base.Channel.CreateTamagotchiAsync(name);
         }
         
         public ConsoleApplication.TamagotchiService.TamagotchiContract GetTamagotchiByName(string Name) {

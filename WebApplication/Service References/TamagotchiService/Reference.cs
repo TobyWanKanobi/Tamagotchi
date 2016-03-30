@@ -267,6 +267,12 @@ namespace WebApplication.TamagotchiService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="TamagotchiService.ITamagotchiService")]
     public interface ITamagotchiService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/CreateTamagotchi", ReplyAction="http://tempuri.org/ITamagotchiService/CreateTamagotchiResponse")]
+        void CreateTamagotchi(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/CreateTamagotchi", ReplyAction="http://tempuri.org/ITamagotchiService/CreateTamagotchiResponse")]
+        System.Threading.Tasks.Task CreateTamagotchiAsync(string name);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITamagotchiService/GetTamagotchiByName", ReplyAction="http://tempuri.org/ITamagotchiService/GetTamagotchiByNameResponse")]
         WebApplication.TamagotchiService.TamagotchiContract GetTamagotchiByName(string Name);
         
@@ -311,6 +317,14 @@ namespace WebApplication.TamagotchiService {
         
         public TamagotchiServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public void CreateTamagotchi(string name) {
+            base.Channel.CreateTamagotchi(name);
+        }
+        
+        public System.Threading.Tasks.Task CreateTamagotchiAsync(string name) {
+            return base.Channel.CreateTamagotchiAsync(name);
         }
         
         public WebApplication.TamagotchiService.TamagotchiContract GetTamagotchiByName(string Name) {

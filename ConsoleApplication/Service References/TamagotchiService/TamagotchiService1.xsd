@@ -1,44 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://tamagotchiwcfservice.azurewebsites.net/TamagotchiService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TamagotchiWcfService.Contract" />
-  <xs:element name="GetTamagotchiByName">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetTamagotchiByNameResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TamagotchiWcfService.Contract" minOccurs="0" name="GetTamagotchiByNameResult" nillable="true" type="q1:TamagotchiContract" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetTamagotchies">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetTamagotchiesResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TamagotchiWcfService.Contract" minOccurs="0" name="GetTamagotchiesResult" nillable="true" type="q2:ArrayOfTamagotchiContract" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ExecuteAction">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TamagotchiWcfService.Contract" minOccurs="0" name="contract" nillable="true" type="q3:ActionContract" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ExecuteActionResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TamagotchiWcfService.Contract" minOccurs="0" name="ExecuteActionResult" nillable="true" type="q4:TamagotchiContract" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TamagotchiWcfService.Contract" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TamagotchiWcfService.Contract" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="TamagotchiContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Boredom" type="xs:int" />
+      <xs:element minOccurs="0" name="Cooldown" type="xs:int" />
+      <xs:element minOccurs="0" name="Health" type="xs:int" />
+      <xs:element minOccurs="0" name="Hunger" type="xs:int" />
+      <xs:element minOccurs="0" name="IsAlive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastAccess" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LastAction" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sleep" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TamagotchiContract" nillable="true" type="tns:TamagotchiContract" />
+  <xs:complexType name="ArrayOfTamagotchiContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TamagotchiContract" nillable="true" type="tns:TamagotchiContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTamagotchiContract" nillable="true" type="tns:ArrayOfTamagotchiContract" />
+  <xs:complexType name="ActionContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ActionContract" nillable="true" type="tns:ActionContract" />
 </xs:schema>

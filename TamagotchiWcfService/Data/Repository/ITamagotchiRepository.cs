@@ -9,6 +9,8 @@ namespace TamagotchiWcfService.Data.Repository
 
         List<Tamagotchi> GetAll();
 
+        bool Create(Tamagotchi tamagotchi);
+
         bool Save(Tamagotchi tamagotchi);
     }
 }

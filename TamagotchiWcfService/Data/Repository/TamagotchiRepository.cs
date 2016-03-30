@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using TamagotchiWcfService.BusinessLogic;
 
 namespace TamagotchiWcfService.Data.Repository
 {
@@ -15,7 +17,7 @@ namespace TamagotchiWcfService.Data.Repository
             _context = new TamagotchiContext();
         }
 
-        private IQueryable<TamagotchiWcfService.BusinessLogic.Tamagotchi> All()
+        private IQueryable<Tamagotchi> All()
         {
             return _context.Tamagotchies.Select(t => new TamagotchiWcfService.BusinessLogic.Tamagotchi()
             {
@@ -31,32 +33,34 @@ namespace TamagotchiWcfService.Data.Repository
             });
         }
 
-        public TamagotchiWcfService.BusinessLogic.Tamagotchi GetByName(string name)
+        public Tamagotchi GetByName(string name)
         {
             return this.All().Where(t => t.Name == name).FirstOrDefault();
         }
 
-        public List<TamagotchiWcfService.BusinessLogic.Tamagotchi> GetAll()
+        public List<Tamagotchi> GetAll()
         {
             return this.All().ToList();
         }
 
-        public bool Save(TamagotchiWcfService.BusinessLogic.Tamagotchi tamagotchi)
+        public bool Save(Tamagotchi tamagotchi)
         {
-            TamagotchiWcfService.Data.Model.Tamagotchi result = _context.Tamagotchies.FirstOrDefault();
+            Model.Tamagotchi result = _context.Tamagotchies
+                .Where(t => t.Name == tamagotchi.Name)
+                .FirstOrDefault();
 
             if (result == null)
             {
                 result.Name = tamagotchi.Name;
-                result.ActionStarted = tamagotchi.LastAction;
-                result.Hunger = tamagotchi.Hunger;
                 result.IsAlive = tamagotchi.IsAlive;
-                result.LastAccess = tamagotchi.LastAccess;
+                result.Health = tamagotchi.Health;
+                result.Hunger = tamagotchi.Hunger;
                 result.Sleep = tamagotchi.Sleep;
                 result.Boredom = tamagotchi.Boredom;
                 result.Cooldown = tamagotchi.Cooldown;
-                result.Health = tamagotchi.Health;
-
+                result.ActionStarted = tamagotchi.LastAction;
+                result.LastAccess = tamagotchi.LastAccess;
+               
                 _context.Tamagotchies.Add(result);
             }
             else
@@ -79,6 +83,34 @@ namespace TamagotchiWcfService.Data.Repository
             _context.SaveChanges();
 
             return true;
+        }
+
+        public bool Create(Tamagotchi tamagotchi)
+        {
+            Model.Tamagotchi result = _context.Tamagotchies
+            .Where(t => t.Name == tamagotchi.Name)
+            .FirstOrDefault();
+
+            if (result != null)
+                return false;
+
+            result = new Model.Tamagotchi();
+
+            result.Name = tamagotchi.Name;
+            result.IsAlive = tamagotchi.IsAlive;
+            result.Health = tamagotchi.Health;
+            result.Hunger = tamagotchi.Hunger;
+            result.Sleep = tamagotchi.Sleep;
+            result.Boredom = tamagotchi.Boredom;
+            result.Cooldown = tamagotchi.Cooldown;
+            result.ActionStarted = tamagotchi.LastAction;
+            result.LastAccess = tamagotchi.LastAccess;
+
+            _context.Tamagotchies.Add(result);
+            _context.SaveChanges();
+
+            return true;
+            
         }
     }
 

@@ -4,6 +4,7 @@ using System.Linq;
 using TamagotchiWcfService.Contract;
 using TamagotchiWcfService.BusinessLogic.GameRules;
 using TamagotchiWcfService.Data.Repository;
+using TamagotchiWcfService.BusinessLogic;
 
 namespace TamagotchiWcfService
 {
@@ -22,15 +23,19 @@ namespace TamagotchiWcfService
 
         public void CreateTamagotchi(string name)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(name))
+                return;
+
+            Tamagotchi tamagotchi = new Tamagotchi(name);
+            TamagotchiRepository.Create(tamagotchi);
         }
 
         public TamagotchiContract GetTamagotchiByName(string Name)
         {
-            if (String.IsNullOrEmpty(Name))
+            if (string.IsNullOrEmpty(Name))
                 return null;
 
-            BusinessLogic.Tamagotchi tamagotchi = TamagotchiRepository.GetByName(Name);
+            Tamagotchi tamagotchi = TamagotchiRepository.GetByName(Name);
             ExecuteRules(tamagotchi);
 
             return new TamagotchiContract() {
@@ -49,7 +54,7 @@ namespace TamagotchiWcfService
 
         public List<TamagotchiContract> GetTamagotchies()
         {
-            List<BusinessLogic.Tamagotchi> tamagotchies = TamagotchiRepository.GetAll();
+            List<Tamagotchi> tamagotchies = TamagotchiRepository.GetAll();
 
             return tamagotchies.Select(t => new TamagotchiContract() {
                     Name = t.Name,
@@ -67,7 +72,7 @@ namespace TamagotchiWcfService
 
         public TamagotchiContract ExecuteAction(ActionContract contract)
         {
-            BusinessLogic.Tamagotchi tamagotchi = TamagotchiRepository.GetByName(contract.Name);
+            Tamagotchi tamagotchi = TamagotchiRepository.GetByName(contract.Name);
 
             if (tamagotchi == null)
                 return null;
@@ -98,7 +103,7 @@ namespace TamagotchiWcfService
 
         }
 
-        private void ExecuteRules(BusinessLogic.Tamagotchi tamagotchi)
+        private void ExecuteRules(Tamagotchi tamagotchi)
         {
 
             var rulestoexecute = Rules.Where(r => 

@@ -107,6 +107,27 @@ namespace TamagotchiWcfService.BusinessLogic
 
         public DateTime LastAction { get; set; }
 
+        public Tamagotchi()
+        {
+
+        }
+
+        public Tamagotchi(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+                throw new ArgumentNullException("Tamagotchi name can't be empty or null");
+
+            Name = name;
+            Health = 0;
+            Hunger = 0;
+            Sleep = 0;
+            Boredom = 0;
+            Cooldown = 0;      
+            IsAlive = true;
+            LastAccess = DateTime.Now;
+            LastAction = DateTime.Now;     
+        }
+
         public void StartAction(string actionName)
         {
             switch (actionName)

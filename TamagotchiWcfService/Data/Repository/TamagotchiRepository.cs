@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using TamagotchiWcfService.Data;
 
-namespace WcfService.Data.Repository
+namespace TamagotchiWcfService.Data.Repository
 {
 
     public class TamagotchiRepository : ITamagotchiRepository

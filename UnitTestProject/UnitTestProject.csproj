@@ -121,6 +121,12 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TamagotchiWcfService\TamagotchiWcfService.csproj">
+      <Project>{1caa48de-9b12-47ef-989a-1dab2e26662c}</Project>
+      <Name>TamagotchiWcfService</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

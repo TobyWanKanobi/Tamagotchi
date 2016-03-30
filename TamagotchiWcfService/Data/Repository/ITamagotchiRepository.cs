@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using TamagotchiWcfService.BusinessLogic;
 
-namespace WcfService.Data.Repository
+namespace TamagotchiWcfService.Data.Repository
 {
     public interface ITamagotchiRepository
     {

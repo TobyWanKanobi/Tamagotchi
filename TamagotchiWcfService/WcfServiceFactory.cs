@@ -2,7 +2,7 @@ using Microsoft.Practices.Unity;
 using TamagotchiWcfService.BusinessLogic.GameRules;
 using TamagotchiWcfService.Data;
 using Unity.Wcf;
-using WcfService.Data.Repository;
+using TamagotchiWcfService.Data.Repository;
 
 namespace TamagotchiWcfService
 {

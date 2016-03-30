@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TamagotchiWcfService.Contract;
 using TamagotchiWcfService.BusinessLogic.GameRules;
-using WcfService.Data.Repository;
+using TamagotchiWcfService.Data.Repository;
 
 namespace TamagotchiWcfService
 {

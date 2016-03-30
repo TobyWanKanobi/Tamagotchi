@@ -91,6 +91,24 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic\GameRules\Boredom.cs" />
+    <Compile Include="BusinessLogic\GameRules\Crazy.cs" />
+    <Compile Include="BusinessLogic\GameRules\Fatique.cs" />
+    <Compile Include="BusinessLogic\GameRules\FoodShortage.cs" />
+    <Compile Include="BusinessLogic\GameRules\Hunger.cs" />
+    <Compile Include="BusinessLogic\GameRules\IGameRule.cs" />
+    <Compile Include="BusinessLogic\GameRules\Isolation.cs" />
+    <Compile Include="BusinessLogic\GameRules\Munchies.cs" />
+    <Compile Include="BusinessLogic\GameRules\SleepDeprivation.cs" />
+    <Compile Include="BusinessLogic\GameRules\TopAthlete.cs" />
+    <Compile Include="BusinessLogic\Tamagotchi.cs" />
+    <Compile Include="Contract\ActionContract.cs" />
+    <Compile Include="Contract\TamagotchiContract.cs" />
+    <Compile Include="Data\Model\Tamagotchi.cs" />
+    <Compile Include="Data\Repository\ITamagotchiRepository.cs" />
+    <Compile Include="Data\Repository\TamagotchiRepository.cs" />
+    <Compile Include="Data\Seeder.cs" />
+    <Compile Include="Data\TamagotchiContext.cs" />
     <Compile Include="ITamagotchiService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TamagotchiService.svc.cs">
@@ -100,9 +118,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="BusinessLogic\" />
-    <Folder Include="Contract\" />
-    <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
